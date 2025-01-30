@@ -462,7 +462,7 @@ const ProcessProgress = () => {
             </h2>
           </div>
           <div className="w-1/2 text-center">
-          <h1 className="hidden md:block text-[#C8532E] font-bold text-xl md:text-2xl">
+          <h1 className=" text-[#C8532E] font-bold text-xl md:text-2xl">
               Select jobs
             </h1>
             

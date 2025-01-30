@@ -37,13 +37,13 @@ const Footer = () => {
       </div>
 
       {/* Navigation Section */}
-      <div className="flex justify-center items-center mt-28">
-        <nav className="bg-[#EDF3FF] border-b-2 w-[70%] text-black font-medium flex justify-between items-center relative pb-20">
+      <div className="flex justify-center items-center mt-36 md:mt-28">
+        <nav className="bg-[#EDF3FF] border-b-2 w-[70%] text-black font-medium flex flex-wrap justify-between items-center relative pb-20">
           {/* Logo */}
           <h1 className="text-lg text-black font-bold">SearchAndApply.io</h1>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-10">
+          <div className="flex space-x-5 md:space-x-10">
             {menuItems.map((menu) => (
               <a
                 key={menu.id}
