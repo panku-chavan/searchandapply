@@ -11,15 +11,14 @@ const listVariants = {
   }),
 };
 
-const CarouselCard = () => {
+const CarouselCard2 = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { triggerOnce: true, margin: "-100px 0px" });
 
   const listItems = [
-    "We take you through a step by step process.",
-    "We help you to make the right career decision.",
-    "10x your chances of actually landing your dream job.",
-    "Increase your income by thousands of dollars."
+    "So, you've found your dream job and you're highly qualified for this role. Still, did you know that there's less than 10% chance that you'll actually get a job offer.",
+    "Some of it is bad luck. But the biggest part is not being prepared for your next job interviewWe help you to make the right career decision.",
+    "Learn the exact tactics and word-for-word scripts that our students used to quadruple their chances of receiving the high-paying dream position they desired.",
   ];
 
   return (
@@ -37,8 +36,8 @@ const CarouselCard = () => {
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       >
         <h2 className="text-4xl font-bold capitalize text-[#002D59] mb-6">
-          10X YOUR CHANCES OF GETTING{" "}
-          <span className="text-[#f4a121]">YOUR DREAM JOB</span>
+        <span className="text-[#f4a121]">ROCK</span> THE JOB INTERVIEW{" "}
+          
         </h2>
         <p className="text-xl text-[#002D59] max-w-2xl mx-auto mb-10 font-medium">
           From job search strategy to resume reviews, we do everything for you.
@@ -65,13 +64,13 @@ const CarouselCard = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          FIND MY DREAM JOB NOW
+          I WANT TO ROCK THE JOB INTERVIEW
         </motion.button>
       </motion.div>
 
       <motion.img
-        src="bg2c.png"
-        className=" rounded-2xl md:w-[50%]"
+        src="Frame5.jpg"
+        className=" rounded-2xl md:w-[50%] mix-blend-multiply"
         alt=""
         initial={{ opacity: 0, scale: 0.9 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -82,10 +81,10 @@ const CarouselCard = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          FIND MY DREAM JOB NOW
+          I WANT TO ROCK THE JOB INTERVIEW
         </motion.button>
     </motion.div>
   );
 };
 
-export default CarouselCard;
+export default CarouselCard2;
