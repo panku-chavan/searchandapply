@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#EDF3FF] text-white py-8 relative" style={{marginTop:"200px"}}>
       {/* Positioned Div */}
-      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 translate-y-[-50%] bg-[url('Frame1.jpg')] w-[90%] md:w-[70%] p-10 md:px-20 rounded-lg shadow-lg">
+      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 translate-y-[-50%] bg-[url('bg.png')] bg-cover w-[90%] md:w-[70%] p-10 md:px-20 rounded-lg shadow-lg">
         <h3 className="text-2xl font-bold mb-10">
           If your resume has not been updated in a while, let us update it
           first.
