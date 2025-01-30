@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#EDF3FF] text-white py-8 relative" style={{marginTop:"200px"}}>
       {/* Positioned Div */}
-      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 translate-y-[-50%] bg-[#0A66C2] w-[90%] md:w-[70%] p-10 px-20 rounded-lg shadow-lg">
+      <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 translate-y-[-50%] bg-[#0A66C2] w-[90%] md:w-[70%] p-10 md:px-20 rounded-lg shadow-lg">
         <h3 className="text-2xl font-bold mb-10">
           If your resume has not been updated in a while, let us update it
           first.
@@ -38,7 +38,7 @@ const Footer = () => {
 
       {/* Navigation Section */}
       <div className="flex justify-center items-center mt-36 md:mt-28">
-        <nav className="bg-[#EDF3FF] border-b-2 w-[70%] text-black font-medium flex flex-wrap justify-between items-center relative pb-20">
+        <nav className="bg-[#EDF3FF] border-b-2 w-[85%] md:w-[70%] text-black font-medium flex flex-wrap justify-between items-center relative pb-10 md:pb-20">
           {/* Logo */}
           <h1 className="text-lg text-black font-bold">SearchAndApply.io</h1>
 
