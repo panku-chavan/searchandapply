@@ -61,7 +61,7 @@ const CarouselCard = () => {
         ))}
 
         <motion.button
-          className="bg-[#0A66C2] p-4 md:px-10 rounded-lg text-white font-medium hover:shadow-lg transition-transform duration-300 ease-in-out"
+          className="hidden md:block bg-[#0A66C2] p-4 md:px-10 rounded-lg text-white font-medium hover:shadow-lg transition-transform duration-300 ease-in-out"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -71,12 +71,19 @@ const CarouselCard = () => {
 
       <motion.img
         src="bg2c.png"
-        className="rounded-2xl md:w-[50%]"
+        className=" rounded-2xl md:w-[50%]"
         alt=""
         initial={{ opacity: 0, scale: 0.9 }}
         animate={isInView ? { opacity: 1, scale: 1 } : {}}
         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
       />
+      <motion.button
+          className="md:hidden mt-5 bg-[#0A66C2] p-4 md:px-10 rounded-lg text-white font-medium hover:shadow-lg transition-transform duration-300 ease-in-out"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          FIND MY DREAM JOB NOW
+        </motion.button>
     </motion.div>
   );
 };

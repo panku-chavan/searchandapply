@@ -52,7 +52,7 @@ const Blog = () => {
         {cards.map((card, index) => (
           <motion.div
             key={index}
-            className="relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-[250px] h-[250px] p-8 pt-12 text-center group"
+            className="relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full md:w-[250px] h-[250px] p-8 pt-12 text-center group"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.2 }}
