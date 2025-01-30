@@ -4,6 +4,7 @@ import Home from '../Pages/Home';
 import About from '../Pages/About'; 
 import Contact from '../Pages/Contact';
 import Process from '../Pages/Process';
+import NotFound from '../Pages/PageNotFound';
 
 const AppRouter = () => (
     
@@ -12,6 +13,7 @@ const AppRouter = () => (
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/process" element={<Process/>} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     
 );

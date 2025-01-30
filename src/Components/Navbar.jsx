@@ -7,9 +7,9 @@ const Navbar = () => {
 
   const menuItems = [
     { id: "home", label: "Home", path: "/" },
-    { id: "services", label: "Services", path: "/" },
+    { id: "services", label: "Services", path: "/services" },
     { id: "process", label: "Process", path: "/process" },
-    { id: "faqs", label: "FAQs", path: "/" },
+    { id: "faqs", label: "FAQs", path: "/faqs" },
   ];
 
   const buttonStyles =
