@@ -1,135 +1,91 @@
-import React, { useState } from 'react';
-import { FaMinus, FaPlus } from 'react-icons/fa';
-import { motion, useInView } from 'framer-motion'; // Import necessary hooks from Framer Motion
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { MdDone } from "react-icons/md";
 
-const FaqItem = ({ question, answer }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const listVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.2, duration: 0.5, ease: "easeOut" }
+  }),
+};
 
-  const toggleCollapse = () => {
-    setIsOpen(!isOpen);
-  };
+const CarouselCard = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { triggerOnce: true, margin: "-100px 0px" });
 
-  const [inViewRef, inView] = useInView({
-    triggerOnce: true, // Trigger animation once when it enters the viewport
-    threshold: 0.2,    // 20% of the element must be visible before triggering
-  });
+  const listItems = [
+    "We take you through a step by step process.",
+    "We help you to make the right career decision.",
+    "10x your chances of actually landing your dream job.",
+    "Increase your income by thousands of dollars."
+  ];
 
   return (
     <motion.div
-      className="bg-white md:w-[500px] py-4 rounded-lg shadow-md"
-      ref={inViewRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
+      ref={ref}
+      className="bg-[#EDF3FF] md:flex justify-between items-center rounded-xl p-10 md:h-[650px]"
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="flex justify-start items-start cursor-pointer" onClick={toggleCollapse}>
-        <button className={`text-2xl font-bold pl-3 pr-3 ${isOpen ? 'text-[#F4A120]' : 'text-[#002E5B]'}`}>
-          {isOpen ? <FaMinus /> : <FaPlus />}
-        </button>
-        <h2 className="text-lg md:w-[450px] text-left font-semibold px-2">{question}</h2>
-      </div>
       <motion.div
-        className={`transition-max-height duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
-        initial={{ opacity: 0 }}
-        animate={isOpen && inView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        className="md:w-[50%]"
+        initial={{ opacity: 0, x: -50 }}
+        animate={isInView ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
       >
-        <p className="mt-4 pl-14 text-[#7A91A8]">{answer}</p>
+        <h2 className="text-4xl font-bold capitalize text-[#002D59] mb-6">
+          10X YOUR CHANCES OF GETTING{" "}
+          <span className="text-[#f4a121]">YOUR DREAM JOB</span>
+        </h2>
+        <p className="text-xl text-[#002D59] max-w-2xl mx-auto mb-10 font-medium">
+          From job search strategy to resume reviews, we do everything for you.
+        </p>
+
+        {listItems.map((item, index) => (
+          <motion.div
+            key={index}
+            className="flex justify-start items-center gap-5 mb-6"
+            variants={listVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            custom={index}
+          >
+            <div className="bg-gradient-to-b from-[#1DBFEE] to-[#003264] rounded-md p-2">
+              <MdDone size={25} className="text-white font-bold" />
+            </div>
+            <p className="text-[#415f7f]">{item}</p>
+          </motion.div>
+        ))}
+
+        <motion.button
+          className="hidden md:block bg-[#0A66C2] p-4 md:px-10 rounded-lg text-white font-medium hover:shadow-lg transition-transform duration-300 ease-in-out"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          FIND MY DREAM JOB NOW
+        </motion.button>
       </motion.div>
+
+      <motion.img
+        src="bg2c.png"
+        className=" rounded-2xl md:w-[50%]"
+        alt=""
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+      />
+      <motion.button
+          className="md:hidden mt-5 bg-[#0A66C2] p-4 md:px-10 rounded-lg text-white font-medium hover:shadow-lg transition-transform duration-300 ease-in-out"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          FIND MY DREAM JOB NOW
+        </motion.button>
     </motion.div>
   );
 };
 
-const Faqs = () => {
-  const faqItems = [
-    {
-      question: 'Do you apply on company websites and ATS systems?',
-      answer: 'Yes, we understand that applying for jobs can be time-consuming. When applying for jobs, we will apply on the company website, usually an "applicant tracking system" (ATS).',
-    },
-    {
-      question: "Do you optimize job seeker's Indeed or LinkedIn before applying for jobs?",
-      answer: "Yes, we optimize job seekers' profiles to increase their chances of getting noticed by employers.",
-    },
-    {
-      question: "Do you connect the job seeker's LinkedIn profile with the direct manager for the job?",
-      answer: "Yes, we make connections with direct managers to facilitate better job matches.",
-    },
-    {
-      question: 'Do you have an initial consultation before beginning the job search?',
-      answer: "Yes, we have an initial consultation to understand the job seeker's needs and preferences.",
-    },
-    {
-      question: 'Do you assist in reviewing and updating resumes?',
-      answer: 'Yes, we assist in reviewing and updating resumes to make them more attractive to employers.',
-    },
-  ];
-
-  const [inViewRef, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  return (
-    <div className="relative md:h-[400px] w-full md:mb-[800px]" ref={inViewRef}>
-      {/* Background div */}
-      <div className="absolute inset-0 bg-[#CCDDFF]"></div>
-
-      {/* Gradient rotated div on top */}
-      <div className="absolute -left-52 top-10 h-[600px] w-[90%] bg-gradient-to-l from-[#ECF2FE] via-[#ECF2FE] via-[20%] to-transparent rounded-3xl shadow-lg rotate-[25deg]"></div>
-
-      {/* Text content */}
-      <motion.div
-        className="relative p-6 text-black z-10"
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.7 }}
-      >
-        <div className="md:flex justify-start items-center">
-          <motion.div
-            className="md:w-[80%]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <img src="Group.png" alt="faqs group" />
-          </motion.div>
-          <div>
-            <motion.h1
-              className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-5 text-center md:text-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3, duration: 0.7 }}
-            >
-              You Have questions,
-            </motion.h1>
-            <motion.h1
-              className="text-[#F4A120] text-3xl md:text-6xl font-bold text-center md:text-start"
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.4, duration: 0.7 }}
-            >
-              We have answers
-            </motion.h1>
-          </div>
-        </div>
-        <div className="mt-10">
-          <motion.h1
-            className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-14 text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.5, duration: 0.7 }}
-          >
-            Frequently Asked <span className="text-[#F4A120]">Questions</span>
-          </motion.h1>
-          <div className="flex flex-wrap justify-center items-stretch gap-5">
-            {faqItems.map((item, index) => (
-              <FaqItem key={index} question={item.question} answer={item.answer} />
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
-export default Faqs;
+export default CarouselCard;
