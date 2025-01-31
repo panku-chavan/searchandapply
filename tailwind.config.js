@@ -5,6 +5,7 @@ module.exports = {
 
   theme: {
     extend: {
+      scrollbar: ["rounded"], // Optional if using `tailwind-scrollbar` plugin
       borderWidth: {
         '10': '10px',  // 12px border
         '12': '12px',  // 12px border
@@ -14,5 +15,8 @@ module.exports = {
       },
     },
   },
-  plugins: [flowbite.plugin()],
+  plugins: [
+    flowbite.plugin(),
+    require("tailwind-scrollbar"),
+  ],
 };
