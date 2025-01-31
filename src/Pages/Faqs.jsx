@@ -4,12 +4,28 @@ import FaqItem from "../Components/FaqItem";
 
 const Faqs = () => {
   const faqItems = [
-    { question: "Do you apply on company websites and ATS systems?", answer: "Yes, we understand..." },
-    { question: "Do you optimize job seeker's Indeed or LinkedIn?", answer: "Yes, we optimize..." },
-    { question: "Do you connect the job seeker's LinkedIn profile?", answer: "Yes, we make connections..." },
-    { question: "Do you have an initial consultation?", answer: "Yes, we have an initial consultation..." },
-    { question: "Do you assist in reviewing and updating resumes?", answer: "Yes, we assist..." },
+    {
+      question: 'Do you apply on company websites and ATS systems?',
+      answer: 'Yes, we understand that applying for jobs can be time-consuming. When applying for jobs, we will apply on the company website, usually an "applicant tracking system" (ATS).',
+    },
+    {
+      question: "Do you optimize job seeker's Indeed or LinkedIn before applying for jobs?",
+      answer: "Yes, we optimize job seekers' profiles to increase their chances of getting noticed by employers.",
+    },
+    {
+      question: "Do you connect the job seeker's LinkedIn profile with the direct manager for the job?",
+      answer: "Yes, we make connections with direct managers to facilitate better job matches.",
+    },
+    {
+      question: 'Do you have an initial consultation before beginning the job search?',
+      answer: "Yes, we have an initial consultation to understand the job seeker's needs and preferences.",
+    },
+    {
+      question: 'Do you assist in reviewing and updating resumes?',
+      answer: 'Yes, we assist in reviewing and updating resumes to make them more attractive to employers.',
+    },
   ];
+
 
   // Framer Motion variants for the text (h1)
   const textVariants = {
