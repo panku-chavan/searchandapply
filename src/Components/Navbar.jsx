@@ -16,7 +16,7 @@ const Navbar = () => {
     "px-4 py-2 font-medium rounded transition";
 
   return (
-    <nav className="bg-[#EDF3FF] text-black font-medium py-4 px-8 flex justify-between items-center relative z-10">
+    <nav className="bg-[#EDF3FF] text-black font-medium py-4 px-8 flex justify-between items-center relative z-50">
       {/* Logo */}
       <h1 className="text-2xl text-blue-900 font-bold">
         <i>SearchAndApply.io</i>
@@ -41,12 +41,8 @@ const Navbar = () => {
 
       {/* Buttons */}
       <div className="hidden md:flex space-x-6">
-        <button className={`${buttonStyles} bg-[#EDF3FF] text-blue-900 hover:bg-blue-100`}>
-          Login
-        </button>
-        <button className={`${buttonStyles} bg-blue-900 text-white shadow-md hover:bg-blue-800 px-8`}>
-          Sign Up
-        </button>
+        <button className={`${buttonStyles} bg-[#EDF3FF] text-blue-900 hover:bg-blue-100`}>Login</button>
+        <button className={`${buttonStyles} bg-blue-900 text-white shadow-md hover:bg-blue-800 px-8`}>Sign Up</button>
       </div>
 
       {/* Hamburger Menu Button */}
@@ -80,7 +76,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-16 left-0 w-full bg-[#EDF3FF] shadow-md flex flex-col items-center space-y-4 py-4 z-50"
+            className="absolute top-16 left-0 w-full bg-[#EDF3FF] shadow-md flex flex-col items-center space-y-4 py-4 z-60" // Increased z-index to ensure menu is above other elements
           >
             {menuItems.map((menu) => (
               <NavLink
@@ -97,12 +93,8 @@ const Navbar = () => {
               </NavLink>
             ))}
             <div className="space-y-4">
-              <button className={`${buttonStyles} bg-[#EDF3FF] text-blue-900 hover:bg-blue-100`}>
-                Login
-              </button>
-              <button className={`${buttonStyles} bg-blue-900 text-white shadow-md hover:bg-blue-800 px-8`}>
-                Sign Up
-              </button>
+              <button className={`${buttonStyles} bg-[#EDF3FF] text-blue-900 hover:bg-blue-100`}>Login</button>
+              <button className={`${buttonStyles} bg-blue-900 text-white shadow-md hover:bg-blue-800 px-8`}>Sign Up</button>
             </div>
           </motion.div>
         )}
