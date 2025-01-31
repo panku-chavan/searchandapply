@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import bg from '../../public/bg.png';
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const [activeMenu, setActiveMenu] = useState("home");
 
   const menuItems = [
-    { id: "home", label: "Home", href: "#home" },
-    { id: "services", label: "Services", href: "#services" },
-    { id: "process", label: "Process", href: "#process" },
-    { id: "faqs", label: "FAQs", href: "#faqs" },
+    { id: "home", label: "Home", path: "/" },
+    { id: "services", label: "Services", path: "/services" },
+    { id: "process", label: "Process", path: "/process" },
+    { id: "faqs", label: "FAQs", path: "/faqs" },
   ];
 
   return (
@@ -45,19 +46,19 @@ const Footer = () => {
 
           {/* Desktop Menu */}
           <div className="flex space-x-5 md:space-x-10">
-            {menuItems.map((menu) => (
-              <a
+          {menuItems.map((menu) => (
+              <NavLink
                 key={menu.id}
-                href={menu.href}
-                onClick={() => setActiveMenu(menu.id)}
-                className={`${
-                  activeMenu === menu.id
-                    ? "text-blue-900"
-                    : "hover:text-blue-900"
-                }`}
+                to={menu.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-blue-900 font-semibold"
+                    : "hover:text-blue-900 transition duration-200"
+                }
+                onClick={() => setIsMenuOpen(false)}
               >
                 {menu.label}
-              </a>
+              </NavLink>
             ))}
           </div>
         </nav>

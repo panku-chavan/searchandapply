@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen bg-white">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center p-10 bg-white shadow-lg rounded-lg"
+        className="text-center p-10 bg-[#EDF3FF] shadow-lg rounded-lg"
       >
         <h1 className="text-6xl font-bold text-red-500">404</h1>
         <p className="text-xl text-gray-700 mt-4">Oops! Page Not Found</p>
