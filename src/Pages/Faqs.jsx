@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { motion } from 'framer-motion'; // Import motion
 
 const FaqItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,17 +10,27 @@ const FaqItem = ({ question, answer }) => {
   };
 
   return (
-    <div className="bg-white md:w-[500px]  py-4 rounded-lg shadow-md  ">
-      <div className="flex justify-start items-start cursor-pointer " onClick={toggleCollapse}>
-        <button className={`text-2xl font-bold pl-3 pr-3 ${isOpen? 'text-[#F4A120]':'text-[#002E5B]'}`}>{isOpen ? <FaMinus/> : <FaPlus/>}</button>
+    <motion.div
+      className="bg-white md:w-[500px] py-4 rounded-lg shadow-md"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.5 }}
+    >
+      <div className="flex justify-start items-start cursor-pointer" onClick={toggleCollapse}>
+        <button className={`text-2xl font-bold pl-3 pr-3 ${isOpen ? 'text-[#F4A120]' : 'text-[#002E5B]'}`}>
+          {isOpen ? <FaMinus /> : <FaPlus />}
+        </button>
         <h2 className="text-lg md:w-[450px] text-left font-semibold px-2">{question}</h2>
       </div>
-      <div
+      <motion.div
         className={`transition-max-height duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
       >
         <p className="mt-4 pl-14 text-[#7A91A8]">{answer}</p>
-      </div>   
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -48,7 +59,12 @@ const Faqs = () => {
   ];
 
   return (
-    <div className="relative  md:h-[400px] w-full  md:mb-[800px]">
+    <motion.div
+      className="relative md:h-[400px] w-full md:mb-[800px]"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.7 }}
+    >
       {/* Background div */}
       <div className="absolute inset-0 bg-[#CCDDFF]"></div>
 
@@ -58,26 +74,49 @@ const Faqs = () => {
       {/* Text content */}
       <div className="relative p-6 text-black z-10">
         <div className="md:flex justify-start items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+          >
             <img src="Group.png" className="w-[80%]" alt="faqs group" />
-          </div>
+          </motion.div>
           <div>
-            <h1 className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-5">You Have questions,</h1>
-            <h1 className="text-[#F4A120] text-3xl md:text-6xl font-bold">We have answers</h1>
+            <motion.h1
+              className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-5 text-center md:text-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+            >
+              You Have questions,
+            </motion.h1>
+            <motion.h1
+              className="text-[#F4A120] text-3xl md:text-6xl font-bold text-center md:text-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.7 }}
+            >
+              We have answers
+            </motion.h1>
           </div>
         </div>
         <div className="mt-10">
-          <h1 className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-14 text-center">
+          <motion.h1
+            className="text-[#002E5B] text-3xl md:text-6xl font-bold mb-14 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
+          >
             Frequently Asked <span className="text-[#F4A120]">Questions</span>
-          </h1>
-          <div className="flex flex-wrap justify-center items-stretch gap-5 ">
+          </motion.h1>
+          <div className="flex flex-wrap justify-center items-stretch gap-5">
             {faqItems.map((item, index) => (
               <FaqItem key={index} question={item.question} answer={item.answer} />
             ))}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
