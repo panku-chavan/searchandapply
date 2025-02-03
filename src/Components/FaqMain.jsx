@@ -42,7 +42,7 @@ const FaqsMain = () => {
   return (
     <div className="relative  w-full  z-10"> {/* Set z-index here */}
       {/* Background div */}
-      <div className="absolute inset-0 bg-[#CCDDFF]"></div>
+      <div className="absolute md:h-[400px] inset-0 bg-[#CCDDFF]"></div>
 
       {/* Gradient rotated div on top */}
       <div className="absolute -left-52 top-10 h-[600px] w-[90%] bg-gradient-to-l from-[#ECF2FE] via-[#ECF2FE] via-[20%] to-transparent rounded-3xl shadow-lg rotate-[25deg]"></div>
