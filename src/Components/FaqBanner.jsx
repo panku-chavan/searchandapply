@@ -9,7 +9,7 @@ const FaqBanner = () => {
   const isInView = useInView(ref, { triggerOnce: false, threshold: 0.2 });
 
   return (
-    <div ref={ref} className="w-full md:mt-[600px]">
+    <div ref={ref} className="w-full md:mt-28">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}

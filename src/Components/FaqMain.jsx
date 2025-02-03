@@ -40,7 +40,7 @@ const FaqsMain = () => {
   };
 
   return (
-    <div className="relative md:h-[400px] w-full  z-10"> {/* Set z-index here */}
+    <div className="relative  w-full  z-10"> {/* Set z-index here */}
       {/* Background div */}
       <div className="absolute inset-0 bg-[#CCDDFF]"></div>
 
